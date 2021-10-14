@@ -3,19 +3,19 @@ import ProjectNavigation from "../../components/SingleProject/ProjectNavigation"
 import ProjectDetail from "../../components/SingleProject/ProjectDetail";
 import MainLayout from "../../layout/MainLayout";
 
-import projectData from '../../data/projectData'
 import WantProjectCTA from "../../components/SingleProject/WantProjectCTA";
 import OtherProjects from "../../components/SingleProject/OtherProjects";
+import axios from "axios";
 import { useRouter } from "next/router";
+import Spinner from "../../components/shared/Spinner";
 
-const SingleProjectPage = () => {
-    const slug = useRouter().query
-    const project = projectData.filter(p => p.slug == slug)
+const SingleProjectPage = ({project}) => {
+    const router = useRouter()
 
-    console.log(slug)
-
-    if (true) {
-        return <div>ads</div>
+    if(router.isFallback || !project) {
+        <div className='w-screen h-screen bg-white'>
+            <Spinner width='30px' />
+        </div>
     }
 
     return (
@@ -46,3 +46,25 @@ const SingleProjectPage = () => {
 }
  
 export default SingleProjectPage;
+
+export async function getStaticProps({params}) {
+    const res = await axios.get('https://my-json-server.typicode.com/maftuhlutfi/my-potofolio-site/projects')
+    const data = await res.data
+    const project = await data.filter(p => p.slug == params.slug)[0]
+
+    return {
+        props: {
+            project
+        },
+    }
+}
+
+export async function getStaticPaths() {
+    const res = await axios.get('https://my-json-server.typicode.com/maftuhlutfi/my-potofolio-site/projects')
+    const data = await res.data
+
+    return {
+        paths: data.map(project => ({params: {slug: project.slug}})),
+        fallback: true
+    }
+}

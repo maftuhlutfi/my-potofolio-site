@@ -8,7 +8,7 @@ const OtherProjects = ({slug}) => {
 
     return (
         <div>
-            <h1 className='font-serif text-2xl mb-4 font-bold'>Other Projects</h1>
+            <h1 className='font-serif text-xl mb-6 font-bold'>Other Projects</h1>
             <div className='grid gap-6'>
                 {projectsList.map((p, index) => 
                     <Link key={index} href={`/projects/${p.slug}`} passHref>
