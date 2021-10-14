@@ -13,9 +13,11 @@ const SingleProjectPage = ({project}) => {
     const router = useRouter()
 
     if(router.isFallback || !project) {
-        <div className='w-screen h-screen bg-white'>
-            <Spinner width='30px' />
-        </div>
+        return (
+            <div className='w-screen h-screen bg-white'>
+                <Spinner width='30px' />
+            </div>
+        )
     }
 
     return (
@@ -23,7 +25,7 @@ const SingleProjectPage = ({project}) => {
             <CustomHead
                 title={project.title}
                 description={project.description}
-                url={`http://maftuhlutfi.vercel.app/${project.slug}`}
+                url={`http://maftuhlutfi.vercel.app/projects/${project.slug}`}
             />
             <MainLayout>
                 <div className='pt-40 py-20 '>
