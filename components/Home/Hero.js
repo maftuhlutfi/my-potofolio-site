@@ -7,7 +7,7 @@ const Hero = () => {
             <div className='w-full max-w-md'>
                 <p className='text-2xl mb-4'>Hello, I am</p>
                 <h1 className='font-serif text-5xl leading-normal mb-4'>Muchamad Lutfi <span className='font-bold'>Maftuh</span></h1>
-                <p className='text-lg leading-normal mb-6 text-gray-600'>A Fullstack Javascript Web Developer specialized in MERN Stack that build quality websites for your needs. <br /> I also do some graphic design.</p>
+                <p className='text-lg leading-relaxed mb-6 text-gray-600'>A Fullstack Javascript Web Developer specialized in MERN Stack that build quality websites for your needs. I also do some graphic design.</p>
                 <div className='flex gap-5'>
                     <CustomButton>
                         Connect Now!

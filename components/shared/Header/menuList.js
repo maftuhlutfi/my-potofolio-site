@@ -4,24 +4,20 @@ const menuList = [
         link: '/'
     },
     {
-        text: 'Tech',
-        link: '#tech'
+        text: 'My Projects',
+        link: '/projects'
     },
     {
-        text: 'Projects',
-        link: '#projects'
+        text: 'Design Gallery',
+        link: '/design-gallery'
     },
     {
-        text: 'Services',
-        link: '#services'
-    },
-    {
-        text: 'Testimonials',
-        link: '#testimonials'
+        text: 'About Me',
+        link: '/about'
     },
     {
         text: 'Talk a Project',
-        link: '#talk',
+        link: '/talk-a-project',
         isButton: true,
     },
 ]

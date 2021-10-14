@@ -4,6 +4,8 @@ import CustomButton from "../../shared/CustomButton";
 import SectionTitle from "../../shared/SectionTitle";
 import ProjectCard from "./ProjectCard";
 
+import Link from 'next/link'
+
 const MyProjects = () => {
     const [activeIndex, setActiveIndex] = useState(0)
 
@@ -27,10 +29,14 @@ const MyProjects = () => {
                 <p className='text-lg text-gray-600 mb-6'>
                     I’ve work with web development for 5+ years. I’ve finish some projects with clients from arround the world with their own problems.
                 </p>
-                <CustomButton outlined>
-                    See more
-                    <i className='icon-arrow-right ml-2' />
-                </CustomButton>
+                <Link href='/projects'>
+                    <a>
+                        <CustomButton outlined>
+                            See more
+                            <i className='icon-arrow-right ml-2' />
+                        </CustomButton>
+                    </a>
+                </Link>
             </div>
         </section>
     );

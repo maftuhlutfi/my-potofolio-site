@@ -9,10 +9,10 @@ module.exports = {
         'gray-red-sec': '#58564F'
       }
     },
-  },
-  fontFamily: {
-    'serif': ['Merriweather'],
-    'sans': ['Open Sans']
+    fontFamily: {
+      'serif': ['Merriweather'],
+      'sans': ['Open\\ Sans']
+    },
   },
   variants: {
     extend: {},
