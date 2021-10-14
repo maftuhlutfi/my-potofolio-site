@@ -1,7 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import projectData from '../../data/projectData';
 
-const OtherProjects = ({projectsList}) => {
+const OtherProjects = ({slug}) => {
+    const randomNum = Math.floor(Math.random() * (projectData.length - 2));
+    const projectsList = projectData.filter(p => p.slug != slug).slice(randomNum,randomNum+2)
+
     return (
         <div>
             <h1 className='font-serif text-2xl mb-4 font-bold'>Other Projects</h1>

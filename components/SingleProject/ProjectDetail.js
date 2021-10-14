@@ -9,7 +9,7 @@ const ProjectDetail = ({title, slug, image, description, case_study, solution, t
         <div>
             <Image src={`/projects-img/${image}`} width={1000} height={633} className='object-cover' />
             <div className='mt-9'>
-                <h1 className='text-4xl font-serif font-bold mb-4'>{title}</h1>
+                <h1 className='text-3xl font-serif font-bold mb-4'>{title}</h1>
                 <p className='text-gray-red-sec'>{description}</p>
                 <CaseStudy caseStudy={case_study} />
                 <Solution solution={solution} />

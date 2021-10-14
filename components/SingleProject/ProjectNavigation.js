@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 import Link from 'next/link'
 import CustomButton from "../shared/CustomButton";
+import projectData from "../../data/projectData";
 
-const Navigation = ({nextProjectSlug}) => {
+const Navigation = ({slug}) => {
     const router = useRouter()
+    const nextProjectSlug = projectData[(projectData.findIndex(p => p.slug == slug)+1)%projectData.length].slug
 
     return (
         <div className='flex justify-between mb-10'>

@@ -6,11 +6,17 @@ import MainLayout from "../../layout/MainLayout";
 import projectData from '../../data/projectData'
 import WantProjectCTA from "../../components/SingleProject/WantProjectCTA";
 import OtherProjects from "../../components/SingleProject/OtherProjects";
+import { useRouter } from "next/router";
 
-const SingleProjectPage = ({project}) => {
-    const nextProjectSlug = projectData[(projectData.findIndex(p => p.slug == project.slug)+1)%projectData.length].slug
-    const randomNum = Math.floor(Math.random() * (projectData.length - 2));
-    const otherProjects = projectData.filter(p => p.slug != project.slug).slice(randomNum,randomNum+2)
+const SingleProjectPage = () => {
+    const slug = useRouter().query
+    const project = projectData.filter(p => p.slug == slug)
+
+    console.log(slug)
+
+    if (true) {
+        return <div>ads</div>
+    }
 
     return (
         <>
@@ -24,13 +30,13 @@ const SingleProjectPage = ({project}) => {
                     <div className='flex'>
                         <div className='flex-shrink w-3/4 mr-10'>
                             <ProjectNavigation 
-                                nextProjectSlug={nextProjectSlug} 
+                                slug={project.slug} 
                             />
                             <ProjectDetail {...project} />
                         </div>
                         <div className='w-1/4 relative'>
                             <WantProjectCTA />
-                            <OtherProjects projectsList={otherProjects} />
+                            <OtherProjects slug={project.slug} />
                         </div>
                     </div>
                 </div>
@@ -40,20 +46,3 @@ const SingleProjectPage = ({project}) => {
 }
  
 export default SingleProjectPage;
-
-export async function getStaticProps({params}) {
-    const project = projectData.filter(p => p.slug == params.slug)[0]
-
-    return {
-        props: {
-            project
-        },
-    }
-}
-
-export async function getStaticPaths() {
-    return {
-        paths: projectData.map(project => ({params: {slug: project.slug}})),
-        fallback: true
-    }
-}
